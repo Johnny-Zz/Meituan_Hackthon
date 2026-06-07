@@ -1,6 +1,10 @@
-# Meituan_Hackthon
+# 元胞蜂群调度系统
 
-美团配送调度赛题 AutoSolver 统一工程。这个目录把两套项目整合到一个可运行、可训练、可回滚、可提交的工作区中：
+**Meituan_Hackthon**
+
+元胞蜂群调度系统是一个面向美团配送场景的智能 AutoSolver。项目借鉴细胞自动机思想，将订单、骑手与任务包视作可演化的元胞单元，通过局部规则、多 Agent 协作、自动训练和策略反馈，不断优化全局配送分配方案，在满足合法性和覆盖约束的前提下降低期望配送成本。
+
+本工程把两套项目整合到一个可运行、可训练、可回滚、可提交的工作区中：
 
 - `MeituanRSD_autosolver`：本地可视化工作台、提交 solver、评测器、回滚、线上分数反馈和安全 patch 流程。
 - `Meituan-Hackathon-main/meituan_agent_build`：算法核心、Teacher 求解器、Agent 策略调度、离线训练和策略蒸馏资产。
