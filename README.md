@@ -9,11 +9,14 @@
 
 ## 快速开始
 
-进入项目根目录：
+克隆仓库并进入项目根目录：
 
 ```bash
-cd /Users/johnny/Desktop/大二/美团Agent大赛/Meituan_Hackthon
+git clone https://github.com/Johnny-Zz/Meituan_Hackthon.git
+cd Meituan_Hackthon
 ```
+
+如果你已经通过 GitHub 网页下载 ZIP，解压后进入解压出来的 `Meituan_Hackthon/` 目录即可。下文所有命令默认都在项目根目录执行。
 
 运行当前提交 solver 的本地评测：
 
@@ -237,4 +240,3 @@ setup_qwen_env.example.sh
 | `docs/Notes.md` | 训练、归因、patch 和实验备注 |
 | `docs/MeituanRSD_autosolver_ChangeLog.md` | 工作台历史更新记录 |
 | `docs/MeituanRSD_autosolver_V2_Plan.md` | 可视化多 Agent 工作台设计方案 |
-
