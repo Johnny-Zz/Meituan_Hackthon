@@ -1,0 +1,4 @@
+# Optional OCR dependencies for Score Feedback Agent.
+# The studio can still parse pasted score text without these packages.
+Pillow>=10.0.0
+pytesseract>=0.3.10

@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MeituanRSD_autosolver</title>
+  <link rel="stylesheet" href="/dashboard/style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">M</div>
+        <div>
+          <div class="brand-title">Meituan<span>RSD</span></div>
+          <div class="brand-sub">autosolver · Agent Studio</div>
+        </div>
+      </div>
+      <div class="project-card click" data-tab-shortcut="cockpit">
+        <div class="label">当前项目</div>
+        <div class="project-name">MeituanRSD_autosolver</div>
+        <div class="pill red">Champion Guard ON</div>
+        <div class="tiny">点击查看总览</div>
+      </div>
+      <nav class="nav">
+        <button class="nav-btn active" data-tab="cockpit">总览 Cockpit</button>
+        <button class="nav-btn" data-tab="office">Agent 办公室</button>
+        <button class="nav-btn" data-tab="flow">状态机 Flow</button>
+        <button class="nav-btn" data-tab="data">实验数据 DataLab</button>
+        <button class="nav-btn" data-tab="forensics">错误归因</button>
+        <button class="nav-btn" data-tab="patch">Patch 工厂</button>
+        <button class="nav-btn" data-tab="feedback">分数反馈</button>
+        <button class="nav-btn" data-tab="logs">训练日志</button>
+        <button class="nav-btn" data-tab="auditor">代码巡查</button>
+        <button class="nav-btn" data-tab="chat">LLM 对话</button>
+        <button class="nav-btn" data-tab="control">用户配置台</button>
+        <button class="nav-btn" data-tab="rollback">一键回滚</button>
+      </nav>
+      <div class="mini-log" id="miniLog"></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="top-left">
+          <div class="mode-pill">Qwen OCR + DeepSeek-V4-pro LLM / Local Fallback</div>
+          <div class="title">One-click Training · Autonomous Patch · No-regression Gate</div>
+        </div>
+        <div class="top-right">
+          <div class="metric-small"><span>solver</span><b id="solverSize">-- KB</b></div>
+          <div class="metric-small"><span>champion</span><b id="championScore">--</b></div>
+          <button class="primary" id="oneTrainTop">一键训练</button>
+          <button class="danger-btn" id="panicBtn">中止训练</button>
+        </div>
+      </header>
+
+      <section class="tab active" id="tab-cockpit">
+        <div class="hero">
+          <div>
+            <h1>MeituanRSD_autosolver</h1>
+            <p>训练前自动备份、DeepSeek/本地规则生成 patch、diff 审查、no-regression gate、失败自动回滚，并将每轮反馈写入 Notes/Handover。</p>
+          </div>
+          <div class="hero-actions">
+            <div class="hero-status" id="heroStatus">READY</div>
+            <button class="primary large" id="oneTrainHero">一键训练</button>
+            <button class="ghost" id="autoPatchHero">自主改写 solver.py</button>
+          </div>
+        </div>
+        <div class="grid four">
+          <button class="card glow clickable" data-jump="forensics"><div class="card-label">当前 Champion</div><div class="big" id="cChampion">--</div><div class="hint">只接受更低分 candidate</div></button>
+          <button class="card clickable" data-jump="logs"><div class="card-label">Candidate</div><div class="big" id="cCandidate">idle</div><div class="hint">每轮训练写入日志</div></button>
+          <button class="card clickable" data-jump="feedback"><div class="card-label">线上反馈</div><div class="big" id="cFeedback">等待</div><div class="hint" id="cFeedbackHint">上传截图后自动对比上一轮</div></button>
+          <button class="card clickable" data-jump="rollback"><div class="card-label">No Regression</div><div class="big ok" id="cGate">ON</div><div class="hint">small / tiny / scarce 保护</div></button>
+          <button class="card clickable" data-jump="auditor"><div class="card-label">静态解码器</div><div class="big" id="cSize">--</div><div class="hint">硬限制 100KB</div></button>
+        </div>
+
+        <div class="panel mt" id="feedbackStrip">
+          <div class="panel-head"><h2>线上分数反馈 · 与上一轮对比</h2><span>上传官方截图后，Cockpit 图表自动替换为线上反馈分数</span></div>
+          <div id="feedbackSummary" class="feedback-summary">等待上传线上提交截图。</div>
+        </div>
+
+        <div class="visual-grid">
+          <div class="panel visual"><div class="panel-head"><h2>柱状图 · case 当前分数</h2><span>点击柱子跳转归因</span></div><canvas id="barChart" width="520" height="260"></canvas></div>
+          <div class="panel visual"><div class="panel-head"><h2>热力图 · 场景风险</h2><span>噪音/意愿/退化风险</span></div><canvas id="heatChart" width="520" height="260"></canvas></div>
+          <div class="panel visual"><div class="panel-head"><h2>雷达图 · 本轮能力画像</h2><span>coverage / cost / reliability</span></div><canvas id="radarChart" width="520" height="260"></canvas></div>
+          <div class="panel visual"><div class="panel-head"><h2>折线图 · 反馈趋势</h2><span>每轮 score delta</span></div><canvas id="lineChart" width="520" height="260"></canvas></div>
+          <div class="panel visual wide"><div class="panel-head"><h2>地图式数据新闻 · 算例分布与战况</h2><span>抽象地图：越红越需保护</span></div><canvas id="mapChart" width="900" height="280"></canvas></div>
+          <div class="panel"><h2>Agent 状态流</h2><div class="event-stream" id="eventStream"></div></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-office">
+        <div class="office-wrap">
+          <div class="office-title">Agent Office · 点击每个 Agent 展开本轮操作</div>
+          <div class="office" id="agentOffice"></div>
+          <aside class="detail-drawer" id="agentDrawer">
+            <button class="close" data-close="agentDrawer">×</button>
+            <h2 id="agentDetailName">选择一个 Agent</h2>
+            <div id="agentDetail"></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-flow">
+        <div class="panel full">
+          <div class="panel-head"><h2>状态机 Flow · 每个环节可点击审查代码</h2><span>流程状态 / 关键代码 / 运行说明</span></div>
+          <div class="flow" id="flowNodes"></div>
+        </div>
+        <div class="grid two mt">
+          <div class="panel"><h2>节点详情</h2><div id="flowDetail" class="detail-box">点击上方任一状态节点。</div></div>
+          <div class="panel"><h2>当前流程代码片段</h2><pre class="codebox" id="flowCode">// waiting for node click</pre></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-data">
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-head"><h2>场景参数调配</h2><button class="primary" id="autoSeedBtn">保存参数并生成多场景训练样本</button></div>
+            <div id="scenarioParams" class="scenario-list"></div>
+          </div>
+          <div class="panel">
+            <h2>场景学习偏向</h2>
+            <div class="data-news">
+              <b>high_noise</b><p>强调噪音性：不要继续 primary topology broad repair，重点调 backup list / backup order。</p>
+              <b>large_seed301</b><p>anchor-preserving：保留已有收益，只允许局部可回滚 patch。</p>
+              <b>low_willingness</b><p>平均意愿低时，多骑手备份比主解微调更有效。</p>
+              <b>medium202</b><p>固定 champion 后做 output-level swap，不再做 broad topology repair。</p>
+            </div>
+            <pre class="codebox small" id="seedConfigPreview">点击上方按钮生成 generated_cases/* 与 seed_config_large_seed301.json</pre>
+            <div class="row-actions"><button class="primary" id="runGeneratedTrainBtn">用生成样本启动一键训练</button><button class="ghost" id="refreshGeneratedBtn">刷新生成结果</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-forensics">
+        <div class="panel full">
+          <div class="panel-head"><h2>错误归因 · 原因 + 错误代码 + 修正方向</h2><span>同步计入 Notes.md / Handover.md</span></div>
+          <div id="forensicsList"></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-patch">
+        <div class="hero compact-hero">
+          <div>
+            <h1>Patch 工厂 · DeepSeek-V4-pro → Patch → Diff → Gate</h1>
+            <p>Agent 会先备份当前 solver，再读取 DataLab / OCR / Forensics 的最新状态，生成结构化 patch，应用到 <code>submission/solver.py</code>，展示 diff，并用本地 case 执行 no-regression gate。失败自动恢复。</p>
+          </div>
+          <div class="hero-actions">
+            <button class="primary large" id="autoPatchTop">自主改写 solver.py</button>
+          </div>
+        </div>
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-head"><h2>最近 Patch Report</h2><span>memory/patch_reports.jsonl</span></div>
+            <div class="event-stream tall" id="patchReports"></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>最近 Diff</h2><span>memory/patch_diffs/*.diff</span></div>
+            <pre class="codebox tall" id="patchDiff">等待自主 patch。</pre>
+          </div>
+        </div>
+        <div class="panel mt">
+          <h2>No-regression Gate 规则</h2>
+          <ul class="checklist compact">
+            <li>必须通过 Python 编译和静态审查；禁止新增 requests/openai/deepseek/socket/subprocess 等危险依赖进入 solver.py。</li>
+            <li>所有本地 case 必须 valid，任务/骑手重复、非法边都会被拒绝。</li>
+            <li>lower-is-better 分数不得高于 patch 前基线；退化则自动恢复 pre-patch solver。</li>
+            <li>没有 DEEPSEEK_API_KEY 时使用本地 safe fallback，仍然完整跑通 patch、diff、gate 与日志闭环。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-feedback">
+        <div class="hero compact-hero">
+          <div>
+            <h1>分数反馈 Agent · 上传线上提交截图</h1>
+            <p>用户上传每一轮官方线上分数截图后，Score Feedback Agent 会自动 OCR/解析 case 分数，与上一轮做 delta 对比，写入 Notes/Handover，并预测下一轮 patch 方向。Cockpit 中柱状图、热力图、雷达图、折线图和地图会同步使用最新反馈。</p>
+          </div>
+          <div class="hero-actions">
+            <button class="primary large" id="uploadScoreBtn">选择并分析截图</button>
+            <input id="scoreImageInput" type="file" accept="image/*" hidden />
+          </div>
+        </div>
+        <div class="grid two">
+          <div class="panel">
+            <div class="panel-head"><h2>上传截图 / 粘贴 OCR 文本</h2><span>优先调用 Qwen OCR；API 未配置时可粘贴文本</span></div>
+            <div class="dropzone" id="scoreDropzone">
+              <b>拖入或点击上传分数截图</b>
+              <p>系统会通过 Qwen OCR 识别 high_noise、large、low、medium、scarce、small、tiny 等 10 个算例的分数、覆盖率和耗时，并同步 Cockpit 与错误归因。</p>
+            </div>
+            <textarea id="scoreTextInput" class="feedback-text" placeholder="也可以在这里粘贴官方反馈文本，例如：large_seed301 667.51 40/40(100%) 9044ms"></textarea>
+            <div class="row-actions">
+              <button class="primary" id="parseScoreTextBtn">解析粘贴文本</button>
+              <button class="ghost" id="refreshFeedbackBtn">刷新反馈</button>
+            </div>
+            <pre class="codebox small" id="feedbackRaw">等待上传。</pre>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><h2>DeepSeek/Agent 下一轮预测</h2><span>memory/score_feedback_latest.json + config/next_round_plan.json</span></div>
+            <div id="qwenStatus" class="hint">Qwen OCR / DeepSeek 状态加载中...</div><div id="feedbackAnalysis" class="analysis-box">暂无反馈。</div>
+          </div>
+        </div>
+        <div class="panel mt">
+          <div class="panel-head"><h2>Case 分数对比表</h2><span>lower is better，Δ&lt;0 表示进步</span></div>
+          <div id="feedbackTable" class="feedback-table"></div>
+        </div>
+        <div class="grid two mt">
+          <div class="panel"><h2>反馈历史</h2><div class="event-stream tall" id="feedbackHistory"></div></div>
+          <div class="panel"><h2>下一轮 Patch Plan JSON</h2><pre class="codebox tall" id="nextPlanPreview">等待生成。</pre></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-logs">
+        <div class="grid two">
+          <div class="panel"><div class="panel-head"><h2>Notes.md</h2><button class="ghost" data-log="notes">刷新</button></div><pre class="codebox tall" id="notesLog"></pre></div>
+          <div class="panel"><div class="panel-head"><h2>Handover.md</h2><button class="ghost" data-log="handover">刷新</button></div><pre class="codebox tall" id="handoverLog"></pre></div>
+        </div>
+        <div class="grid two mt">
+          <div class="panel"><h2>Agent 自主迭代日志</h2><div class="event-stream tall" id="agentLogs"></div></div>
+          <div class="panel"><h2>训练轮次 / LLM 对话 / 数据反馈</h2><div class="event-stream tall" id="trainingLogs"></div></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-auditor">
+        <div class="grid two">
+          <div class="panel"><h2>solver.py 审计</h2><div id="auditBox"></div><button class="primary" id="auditBtn">重新审计</button></div>
+          <div class="panel"><h2>代码巡查</h2><pre class="codebox tall" id="solverPreview">loading...</pre></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-chat">
+        <div class="chat-layout">
+          <div class="panel chat-panel">
+            <h2>与 LLM Reflector 对话</h2>
+            <div class="chat-log" id="chatLog"></div>
+            <div class="chat-input">
+              <textarea id="chatInput" placeholder="例如：分析为什么 high_noise 多轮不动，并给出下一轮 DSL。"></textarea>
+              <button class="primary" id="sendChat">发送给 DeepSeek-V4-pro</button>
+            </div>
+          </div>
+          <div class="panel"><h2>记录规则</h2><ul class="checklist"><li>每条 LLM 对话写入 memory/chat.jsonl</li><li>关键归因写入 Notes/Handover</li><li>LLM 只生成结构化 patch plan；真正改写必须通过 diff + no-regression gate</li><li>API Key 只读环境变量</li></ul></div>
+        </div>
+      </section>
+
+      <section class="tab" id="tab-control">
+        <div class="grid three">
+          <button class="control-card" data-action="one_click_train"><b>一键训练</b><span>备份 → 自主 patch → 本地评测 → 日志归因</span></button>
+          <button class="control-card" data-action="autonomous_patch"><b>自主改写 solver.py</b><span>DeepSeek/本地规则生成 patch，diff 审查后 no-regression gate</span></button>
+          <button class="control-card" data-action="backup"><b>创建备份</b><span>显示备份时间、代码名、哈希值</span></button>
+          <button class="control-card" data-action="audit"><b>审计 solver</b><span>检查大小、依赖、函数数、hash</span></button>
+          <button class="control-card" data-action="auto_seed_config"><b>生成 seed 配置</b><span>分析 large_seed301 自动配置随机种子</span></button>
+          <button class="control-card" data-action="freeze_scene" data-scene="small"><b>冻结 small</b><span>禁止 risky repair 进入 small</span></button>
+          <button class="control-card" data-action="freeze_scene" data-scene="scarce"><b>冻结 scarce</b><span>禁止 scarce 激进 LNS</span></button>
+          <button class="control-card" data-action="pause"><b>暂停训练</b><span>Leader 收到暂停信号</span></button>
+          <button class="control-card" data-jump="feedback"><b>上传线上分数反馈</b><span>截图 → OCR → 对比上一轮 → 预测下一轮方向</span></button>
+          <button class="control-card" data-action="submit_prepare"><b>提交前确认</b><span>只生成检查事件，不自动提交</span></button>
+          <button class="control-card danger" data-jump="rollback"><b>一键回滚</b><span>选择版本后二次确认</span></button>
+        </div>
+        <div class="panel mt"><h2>用户动作结果</h2><pre class="codebox" id="actionResult">点击任一配置卡片执行。</pre></div>
+        <div class="panel mt"><h2>备份清单</h2><div id="backupTable"></div></div>
+      </section>
+
+      <section class="tab" id="tab-rollback">
+        <div class="panel full">
+          <div class="panel-head"><h2>一键回滚</h2><span>训练前自动备份；选择版本 → 输入 ROLLBACK → 恢复</span></div>
+          <p class="hint">每个备份包含时间、训练轮次、改动说明、代码名称、solver.py SHA-256、配置与日志。回滚前系统会再创建一个 pre_restore 保护备份。</p>
+          <div id="rollbackList" class="rollback-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="/dashboard/app.js"></script>
+</body>
+</html>

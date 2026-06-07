@@ -1,0 +1,166 @@
+{
+  "time": "2026-06-06 16:37:27",
+  "source": "test_text",
+  "image_name": null,
+  "notes": "",
+  "ocr_method": "text_input",
+  "average_score": 1140.73,
+  "completed_cases": "40/40",
+  "session_history": [],
+  "cases": [
+    {
+      "case": "large_seed301",
+      "score": 660.12,
+      "assigned": "40/40",
+      "covered": 40,
+      "total": 40,
+      "time_ms": 850,
+      "raw_line": "large_seed301 660.12 40/40 850ms",
+      "previous_score": 667.51,
+      "delta": -7.39,
+      "trend": "improved"
+    },
+    {
+      "case": "low_willingness_seed501",
+      "score": 1815.8,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 9001,
+      "raw_line": "low_willingness_seed501 1815.80 30/30 9001ms",
+      "previous_score": 1803.88,
+      "delta": 11.92,
+      "trend": "regressed"
+    },
+    {
+      "case": "medium_seed202",
+      "score": 527.0,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 650,
+      "raw_line": "medium_seed202 527.00 30/30 650ms",
+      "previous_score": 527.59,
+      "delta": -0.59,
+      "trend": "improved"
+    },
+    {
+      "case": "scarce_couriers_seed401",
+      "score": 1560.0,
+      "assigned": "40/40",
+      "covered": 40,
+      "total": 40,
+      "time_ms": 700,
+      "raw_line": "scarce_couriers_seed401 1560.00 40/40 700ms",
+      "previous_score": 1554.38,
+      "delta": 5.62,
+      "trend": "protected-regressed"
+    }
+  ],
+  "raw_text": "large_seed301 660.12 40/40 850ms\nlow_willingness_seed501 1815.80 30/30 9001ms\nscarce_couriers_seed401 1560.00 40/40 700ms\nmedium_seed202 527.00 30/30 650ms",
+  "analysis": {
+    "summary": "平均分 714.12 → 1140.73，Δ=+426.62（lower is better）。 显著改善：large_seed301 -7.39, medium_seed202 -0.59。 退化警戒：low_willingness_seed501 +11.92, scarce_couriers_seed401 +5.62。 耗时接近上限：low_willingness_seed501 9001ms。",
+    "avg_delta": 426.615,
+    "previous_average_score": 714.115,
+    "comparison_source": "previous_official_feedback",
+    "improved_cases": [
+      "large_seed301",
+      "medium_seed202"
+    ],
+    "regressed_cases": [
+      "low_willingness_seed501",
+      "scarce_couriers_seed401"
+    ],
+    "stalled_cases": [],
+    "slow_cases": [
+      "low_willingness_seed501"
+    ],
+    "next_focus": [
+      "立即恢复保护门禁：small/tiny/scarce 出现退化时禁用本轮 patch。",
+      "low_willingness_seed501: regressed，下一轮优先做场景专属轻量校准。"
+    ],
+    "next_round_plan": [
+      {
+        "target": "runtime",
+        "patch_surface": "budget_gate",
+        "action": "多个 case 接近 9s，下一轮 patch 必须保持 safety_margin，不引入额外 LNS。",
+        "risk": "low_willingness_seed501"
+      }
+    ],
+    "case_deltas": [
+      {
+        "case": "large_seed301",
+        "score": 660.12,
+        "assigned": "40/40",
+        "covered": 40,
+        "total": 40,
+        "time_ms": 850,
+        "raw_line": "large_seed301 660.12 40/40 850ms",
+        "previous_score": 667.51,
+        "delta": -7.39,
+        "trend": "improved"
+      },
+      {
+        "case": "low_willingness_seed501",
+        "score": 1815.8,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 9001,
+        "raw_line": "low_willingness_seed501 1815.80 30/30 9001ms",
+        "previous_score": 1803.88,
+        "delta": 11.92,
+        "trend": "regressed"
+      },
+      {
+        "case": "medium_seed202",
+        "score": 527.0,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 650,
+        "raw_line": "medium_seed202 527.00 30/30 650ms",
+        "previous_score": 527.59,
+        "delta": -0.59,
+        "trend": "improved"
+      },
+      {
+        "case": "scarce_couriers_seed401",
+        "score": 1560.0,
+        "assigned": "40/40",
+        "covered": 40,
+        "total": 40,
+        "time_ms": 700,
+        "raw_line": "scarce_couriers_seed401 1560.00 40/40 700ms",
+        "previous_score": 1554.38,
+        "delta": 5.62,
+        "trend": "protected-regressed"
+      }
+    ]
+  },
+  "llm_analysis": null,
+  "forensics": [
+    {
+      "scene": "low_willingness_seed501",
+      "finding": "low_willingness_seed501 当前状态：regressed",
+      "severity": "warning",
+      "reason": "本轮 score=1815.8，上一轮=1803.88，Δ=+11.9200。 候选 patch 可能破坏了 anchor-preserving 或 backup order。 耗时 9001ms 接近上限，下一轮禁止扩大搜索半径。",
+      "bad_code": "backup_pool.sort(key=lambda x: x.score)  # 忽略 willingness",
+      "patch": "backup_pool.sort(key=lambda x: (x.score / max(x.willingness, 1e-6), x.score)); 限制 max_extra_couriers。",
+      "source": "text_input",
+      "updated_at": "2026-06-06 16:37:27",
+      "evidence": "low_willingness_seed501 1815.80 30/30 9001ms"
+    },
+    {
+      "scene": "scarce_couriers_seed401",
+      "finding": "scarce_couriers_seed401 当前状态：protected-regressed",
+      "severity": "danger",
+      "reason": "本轮 score=1560.0，上一轮=1554.38，Δ=+5.6200。 保护场景退化，必须优先恢复 no-regression hard lock。",
+      "bad_code": "if global_patch: apply_to_all_cases()",
+      "patch": "恢复 hard lock；禁止将 large/low/high_noise 的 patch 共享到 protected cases。",
+      "source": "text_input",
+      "updated_at": "2026-06-06 16:37:27",
+      "evidence": "scarce_couriers_seed401 1560.00 40/40 700ms"
+    }
+  ]
+}

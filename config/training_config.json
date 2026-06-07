@@ -1,0 +1,94 @@
+{
+  "project_name": "SwarmCell_OmniCell_autosolver",
+  "one_click_training": {
+    "enabled": true,
+    "pre_backup": true,
+    "auto_notes": true,
+    "auto_handover": true,
+    "mode": "local_test_with_autonomous_patch",
+    "local_test_command": "python local_test.py submission/solver.py {case_file}",
+    "submit_url": "https://hackathon.mykeeta.com/",
+    "require_user_confirm_submit": true,
+    "max_seconds_per_round": 120,
+    "autonomous_patch_enabled": true,
+    "patch_surface": "CONFIG_ONLY_WITH_DIFF_AND_GATE",
+    "no_regression_eps": 1e-06
+  },
+  "scenes": {
+    "high_noise_seed601": {
+      "noise_guard": 0.82,
+      "regret_weight": 0.74,
+      "backup_order": 0.36,
+      "lns_budget_ms": 650,
+      "risk": "避免 score 噪声诱导的贪心陷阱，优先 regret + pair swap 小步修复"
+    },
+    "large_seed301": {
+      "route_topology_lock": 0.9,
+      "seed_auto": 301,
+      "polish_budget_ms": 900,
+      "backup_order": 0.42,
+      "risk": "大规模算例保持 V4-A anchor，不做 broad topology repair"
+    },
+    "large_seed302": {
+      "route_topology_lock": 0.95,
+      "seed_auto": 302,
+      "polish_budget_ms": 300,
+      "backup_order": 0.28,
+      "risk": "暂缓，仅在 hard-lock 稳定后再打开 gate"
+    },
+    "low_willingness_seed501": {
+      "willingness_threshold": 0.18,
+      "multi_courier": 0.88,
+      "main_solver_budget_ms": 500,
+      "backup_budget_ms": 3500,
+      "risk": "低意愿场景重点校准 backup list / backup order"
+    },
+    "medium_seed202": {
+      "remove2_repair": 0.75,
+      "output_swap": 0.66,
+      "lns_budget_ms": 700,
+      "risk": "固定 champion 解后做小范围输出级替换"
+    },
+    "scarce_couriers_seed401": {
+      "courier_ratio_gate": 0.95,
+      "bundle_first": 0.8,
+      "lns_budget_ms": 0,
+      "risk": "保护场景，禁止激进 LNS；只允许节省骑手的保守 patch"
+    }
+  },
+  "score_feedback": {
+    "enabled": true,
+    "upload_screenshot": true,
+    "ocr_engine": "qwen_vl_openai_compatible",
+    "qwen_base_url": "https://ws-bmzspe69czs7znm9.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1",
+    "qwen_ocr_model": "qwen-vl-ocr",
+    "history_file": "memory/score_feedback_history.jsonl",
+    "latest_file": "memory/score_feedback_latest.json",
+    "next_round_plan": "config/next_round_plan.json",
+    "lower_is_better": true,
+    "protected_cases": [
+      "small_seed100",
+      "tiny_seed42",
+      "scarce_couriers_seed401"
+    ]
+  },
+  "data_generation": {
+    "enabled": true,
+    "base_case": "cases/large_seed301.txt",
+    "output_dir": "generated_cases",
+    "last_manifest": "memory/generated_cases_latest.json",
+    "run_after_param_save": false,
+    "scenario_targets": [
+      "high_noise_seed601",
+      "large_seed301",
+      "large_seed302",
+      "low_willingness_seed501",
+      "medium_seed201",
+      "medium_seed202",
+      "medium_seed203",
+      "scarce_couriers_seed401",
+      "small_seed100",
+      "tiny_seed42"
+    ]
+  }
+}

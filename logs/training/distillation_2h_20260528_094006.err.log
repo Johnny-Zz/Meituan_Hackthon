@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\Charles\Documents\meituan_agent_build\training\run_agent_distillation_2h.py", line 322, in <module>
+    main()
+  File "C:\Users\Charles\Documents\meituan_agent_build\training\run_agent_distillation_2h.py", line 269, in main
+    best_case = str(case.relative_to(ROOT))
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\Lib\pathlib.py", line 682, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: 'agent\\meituan_1500_training_samples_by_scene\\case_bank\\train\\high_noise_seed601\\high_noise_seed601_aug087.txt' is not in the subpath of 'C:\\Users\\Charles\\Documents\\meituan_agent_build'

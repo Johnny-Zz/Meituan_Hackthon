@@ -1,0 +1,25 @@
+[project]
+name = "meituan-rsd-unified"
+version = "0.1.0"
+description = "Unified Meituan AutoSolver studio plus offline algorithm core."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "ipython>=9.13.0",
+    "langchain>=1.3.0",
+    "langchain-deepseek>=1.0.1",
+    "langgraph>=1.2.0",
+    "openai>=1.0.0",
+]
+
+[project.optional-dependencies]
+ocr = [
+    "Pillow>=10.0.0",
+    "pytesseract>=0.3.10",
+]
+ml = [
+    "joblib>=1.3.0",
+    "scikit-learn>=1.4.0",
+]
+

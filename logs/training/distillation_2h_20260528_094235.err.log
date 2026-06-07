@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\Users\Charles\Documents\meituan_agent_build\training\run_agent_distillation_2h.py", line 323, in <module>
+    main()
+  File "C:\Users\Charles\Documents\meituan_agent_build\training\run_agent_distillation_2h.py", line 236, in main
+    text = case.read_text(encoding="utf-8")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\Lib\pathlib.py", line 1027, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\anaconda3\Lib\pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Charles\\Documents\\meituan_agent_build\\agent\\meituan_1500_training_samples_by_scene\\case_bank\\train\\large_seed302\\large_seed302_aug080.txt'

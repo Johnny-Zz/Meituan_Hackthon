@@ -1,0 +1,55 @@
+{
+  "scenarios": {
+    "sparse_candidates": {
+      "core_default_teacher@9200ms": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 3235.38,
+        "best_reward": 0.0,
+        "success_count": 1,
+        "success_rate": 1.0,
+        "trial_count": 1
+      },
+      "core_single_teacher": {
+        "avg_reward": -109.02380599999998,
+        "avg_runtime_ms": 2843.763,
+        "best_reward": -109.02380599999998,
+        "success_count": 1,
+        "success_rate": 1.0,
+        "trial_count": 1
+      },
+      "single_balanced_search@2500ms": {
+        "avg_reward": -109.02380599999998,
+        "avg_runtime_ms": 2288.552,
+        "best_reward": -109.02380599999998,
+        "success_count": 1,
+        "success_rate": 1.0,
+        "trial_count": 1
+      },
+      "single_balanced_search@5000ms": {
+        "avg_reward": -109.02380599999998,
+        "avg_runtime_ms": 2944.268,
+        "best_reward": -109.02380599999998,
+        "success_count": 1,
+        "success_rate": 1.0,
+        "trial_count": 1
+      },
+      "single_ilp_micro": {
+        "avg_reward": -109.02380599999998,
+        "avg_runtime_ms": 2285.675,
+        "best_reward": -109.02380599999998,
+        "success_count": 1,
+        "success_rate": 1.0,
+        "trial_count": 1
+      },
+      "single_scarce_bundle_repair@7000ms": {
+        "avg_reward": -109.02380599999998,
+        "avg_runtime_ms": 2974.517,
+        "best_reward": -109.02380599999998,
+        "success_count": 1,
+        "success_rate": 1.0,
+        "trial_count": 1
+      }
+    }
+  },
+  "type": "contextual_bandit_table"
+}

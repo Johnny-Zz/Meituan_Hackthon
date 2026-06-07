@@ -1,0 +1,22 @@
+--- submission/solver.py@before
++++ submission/solver.py@after
+@@ -3,6 +3,8 @@
+ import time
+ EPS = 1e-09
+ _GROUP_COST_CACHE = {}
++# AUTOSOLVER_AGENT_PATCH: last structured CONFIG patch applied by tools/autonomous_patch_agent.py
++# AUTOSOLVER_AGENT_PATCH_REASON: 无 DeepSeek API Key 时，先写入可审查的 patch 元数据，验证自主改写、diff、审查、no-regression 与日志闭环，不改变求解行为。
+ # AUTOSOLVER_AGENT_PATCH: last structured CONFIG patch applied by tools/autonomous_patch_agent.py
+ # AUTOSOLVER_AGENT_PATCH_REASON: 无 DeepSeek API Key 时，先写入可审查的 patch 元数据，验证自主改写、diff、审查、no-regression 与日志闭环，不改变求解行为。
+ # AUTOSOLVER_AGENT_PATCH: last structured CONFIG patch applied by tools/autonomous_patch_agent.py
+@@ -36,8 +38,8 @@
+                 (0.099, 0.9555, 0.0258, 0.1814, 0.0, 0.0747, 0),
+                 (0.051, 1.0402, 0.0407, 0.3392, 0.1406, 0.0082, 1),
+                 (0.0696, 0.9884, 0.0974, 0.0911, 0.0737, 0.1305, 0)],
+- '_agent_patch_round': 4,
+- '_agent_patch_time': '2026-06-06 05:52:18',
++ '_agent_patch_round': 5,
++ '_agent_patch_time': '2026-06-06 05:53:35',
+  '_agent_patch_origin': 'local_fallback'}
+ 
+ class Candidate:

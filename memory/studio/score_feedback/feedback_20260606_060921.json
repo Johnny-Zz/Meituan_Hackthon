@@ -1,0 +1,326 @@
+{
+  "time": "2026-06-06 06:09:21",
+  "source": "seed_demo",
+  "image_name": "9429a905-467b-4833-b0b1-f25dea53c80f.png",
+  "notes": "seeded from user provided screenshot",
+  "ocr_method": "text_input",
+  "average_score": 714.115,
+  "completed_cases": "10/10",
+  "session_history": [
+    {
+      "clock": "13:58:22",
+      "average_score": 714.12,
+      "completed_cases": "10/10",
+      "raw_line": "13:58:22 714.12 10/10 Sil"
+    },
+    {
+      "clock": "13:45:48",
+      "average_score": 714.15,
+      "completed_cases": "10/10",
+      "raw_line": "13:45:48 714.15 10/10 Si)"
+    }
+  ],
+  "cases": [
+    {
+      "case": "high_noise_seed601",
+      "score": 497.06,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 9032,
+      "raw_line": "high_noise_seed601 497.06 30/30(100%) 9032ms",
+      "previous_score": 497.06,
+      "delta": 0.0,
+      "trend": "stalled"
+    },
+    {
+      "case": "large_seed301",
+      "score": 667.51,
+      "assigned": "40/40",
+      "covered": 40,
+      "total": 40,
+      "time_ms": 9044,
+      "raw_line": "large seed301 667.51 40/40(100%) 9044ms",
+      "previous_score": 675.35,
+      "delta": -7.84,
+      "trend": "improved"
+    },
+    {
+      "case": "large_seed302",
+      "score": 638.36,
+      "assigned": "40/40",
+      "covered": 40,
+      "total": 40,
+      "time_ms": 9151,
+      "raw_line": "large seed302 638.36 40/40(100%) 9151ms",
+      "previous_score": 639.68,
+      "delta": -1.32,
+      "trend": "improved"
+    },
+    {
+      "case": "low_willingness_seed501",
+      "score": 1803.88,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 8986,
+      "raw_line": "low_willingness_seed501 1,803.88 30/30(100%) 8986ms",
+      "previous_score": 1810.77,
+      "delta": -6.89,
+      "trend": "improved"
+    },
+    {
+      "case": "medium_seed201",
+      "score": 484.32,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 9028,
+      "raw_line": "medium_seed201 484.32 30/30(100%) 9028ms",
+      "previous_score": 494.86,
+      "delta": -10.54,
+      "trend": "improved"
+    },
+    {
+      "case": "medium_seed202",
+      "score": 527.59,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 9026,
+      "raw_line": "medium_seed202 527.59 30/30(100%) 9026ms",
+      "previous_score": 527.59,
+      "delta": 0.0,
+      "trend": "stalled"
+    },
+    {
+      "case": "medium_seed203",
+      "score": 502.49,
+      "assigned": "30/30",
+      "covered": 30,
+      "total": 30,
+      "time_ms": 9016,
+      "raw_line": "medium_seed203 502.49 30/30(100%) 9016ms",
+      "previous_score": 508.65,
+      "delta": -6.16,
+      "trend": "improved"
+    },
+    {
+      "case": "scarce_couriers_seed401",
+      "score": 1554.38,
+      "assigned": "40/40",
+      "covered": 40,
+      "total": 40,
+      "time_ms": 4737,
+      "raw_line": "scarce_couriers_seed401 1,554.38 40/40(100%) 4737ms",
+      "previous_score": 1554.38,
+      "delta": 0.0,
+      "trend": "protected"
+    },
+    {
+      "case": "small_seed100",
+      "score": 306.91,
+      "assigned": "15/15",
+      "covered": 15,
+      "total": 15,
+      "time_ms": 1353,
+      "raw_line": "small seed100 306.91 15/15(100%) 1353ms",
+      "previous_score": 306.91,
+      "delta": 0.0,
+      "trend": "protected"
+    },
+    {
+      "case": "tiny_seed42",
+      "score": 158.65,
+      "assigned": "6/6",
+      "covered": 6,
+      "total": 6,
+      "time_ms": 132,
+      "raw_line": "tiny_seed42 158.65 6/6(100%) 132ms",
+      "previous_score": 158.65,
+      "delta": 0.0,
+      "trend": "protected"
+    }
+  ],
+  "raw_text": "B iviliscrk\nPETIA 714.12\nFAG 10/10\nhigh_noise_seed601 497.06 30/30(100%) 9032ms\nlarge seed301 667.51 40/40(100%) 9044ms\nlarge seed302 638.36 40/40(100%) 9151ms\nlow_willingness_seed501 1,803.88 30/30(100%) 8986ms\nmedium_seed201 484.32 30/30(100%) 9028ms\nmedium_seed202 527.59 30/30(100%) 9026ms\nmedium_seed203 502.49 30/30(100%) 9016ms\nscarce_couriers_seed401 1,554.38 40/40(100%) 4737ms\nsmall seed100 306.91 15/15(100%) 1353ms\ntiny_seed42 158.65 6/6(100%) 132ms\nBRS AL\n13:58:22 714.12 10/10 Sil\n13:45:48 714.15 10/10 Si)\n",
+  "analysis": {
+    "summary": "平均分 714.15 → 714.12，Δ=-0.04（lower is better）。 显著改善：large_seed301 -7.84, large_seed302 -1.32, low_willingness_seed501 -6.89, medium_seed201 -10.54, medium_seed203 -6.16。 未动/平台期：high_noise_seed601, medium_seed202。 耗时接近上限：high_noise_seed601 9032ms, large_seed301 9044ms, large_seed302 9151ms, low_willingness_seed501 8986ms, medium_seed201 9028ms。",
+    "avg_delta": -0.035,
+    "previous_average_score": 714.15,
+    "comparison_source": "screenshot_session_history",
+    "improved_cases": [
+      "large_seed301",
+      "large_seed302",
+      "low_willingness_seed501",
+      "medium_seed201",
+      "medium_seed203"
+    ],
+    "regressed_cases": [],
+    "stalled_cases": [
+      "high_noise_seed601",
+      "medium_seed202"
+    ],
+    "slow_cases": [
+      "high_noise_seed601",
+      "large_seed301",
+      "large_seed302",
+      "low_willingness_seed501",
+      "medium_seed201",
+      "medium_seed202",
+      "medium_seed203"
+    ],
+    "next_focus": [
+      "high_noise_seed601: stalled，下一轮优先做场景专属轻量校准。",
+      "medium_seed202: stalled，下一轮优先做场景专属轻量校准。"
+    ],
+    "next_round_plan": [
+      {
+        "target": "high_noise_seed601",
+        "patch_surface": "backup_order_only",
+        "action": "提升 noise_guard/regret_weight，降低 primary topology 改写强度；只重排 backup list。",
+        "risk": "不能共享到 small/tiny/scarce。"
+      },
+      {
+        "target": "medium_seed202",
+        "patch_surface": "output_level_swap",
+        "action": "固定 champion 拓扑，只做 1-2 个 bundle 的输出级 swap 校准。",
+        "risk": "禁止 broad topology repair。"
+      },
+      {
+        "target": "low_willingness_seed501",
+        "patch_surface": "backup_budget",
+        "action": "保留本轮 low 收益；下一轮只微调 backup order 与 max_extra_couriers，不扩大主解搜索。",
+        "risk": "主解 budget 扩大可能吃掉 backup 时间。"
+      },
+      {
+        "target": "runtime",
+        "patch_surface": "budget_gate",
+        "action": "多个 case 接近 9s，下一轮 patch 必须保持 safety_margin，不引入额外 LNS。",
+        "risk": "high_noise_seed601, large_seed301, large_seed302, low_willingness_seed501, medium_seed201"
+      }
+    ],
+    "case_deltas": [
+      {
+        "case": "high_noise_seed601",
+        "score": 497.06,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 9032,
+        "raw_line": "high_noise_seed601 497.06 30/30(100%) 9032ms",
+        "previous_score": 497.06,
+        "delta": 0.0,
+        "trend": "stalled"
+      },
+      {
+        "case": "large_seed301",
+        "score": 667.51,
+        "assigned": "40/40",
+        "covered": 40,
+        "total": 40,
+        "time_ms": 9044,
+        "raw_line": "large seed301 667.51 40/40(100%) 9044ms",
+        "previous_score": 675.35,
+        "delta": -7.84,
+        "trend": "improved"
+      },
+      {
+        "case": "large_seed302",
+        "score": 638.36,
+        "assigned": "40/40",
+        "covered": 40,
+        "total": 40,
+        "time_ms": 9151,
+        "raw_line": "large seed302 638.36 40/40(100%) 9151ms",
+        "previous_score": 639.68,
+        "delta": -1.32,
+        "trend": "improved"
+      },
+      {
+        "case": "low_willingness_seed501",
+        "score": 1803.88,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 8986,
+        "raw_line": "low_willingness_seed501 1,803.88 30/30(100%) 8986ms",
+        "previous_score": 1810.77,
+        "delta": -6.89,
+        "trend": "improved"
+      },
+      {
+        "case": "medium_seed201",
+        "score": 484.32,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 9028,
+        "raw_line": "medium_seed201 484.32 30/30(100%) 9028ms",
+        "previous_score": 494.86,
+        "delta": -10.54,
+        "trend": "improved"
+      },
+      {
+        "case": "medium_seed202",
+        "score": 527.59,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 9026,
+        "raw_line": "medium_seed202 527.59 30/30(100%) 9026ms",
+        "previous_score": 527.59,
+        "delta": 0.0,
+        "trend": "stalled"
+      },
+      {
+        "case": "medium_seed203",
+        "score": 502.49,
+        "assigned": "30/30",
+        "covered": 30,
+        "total": 30,
+        "time_ms": 9016,
+        "raw_line": "medium_seed203 502.49 30/30(100%) 9016ms",
+        "previous_score": 508.65,
+        "delta": -6.16,
+        "trend": "improved"
+      },
+      {
+        "case": "scarce_couriers_seed401",
+        "score": 1554.38,
+        "assigned": "40/40",
+        "covered": 40,
+        "total": 40,
+        "time_ms": 4737,
+        "raw_line": "scarce_couriers_seed401 1,554.38 40/40(100%) 4737ms",
+        "previous_score": 1554.38,
+        "delta": 0.0,
+        "trend": "protected"
+      },
+      {
+        "case": "small_seed100",
+        "score": 306.91,
+        "assigned": "15/15",
+        "covered": 15,
+        "total": 15,
+        "time_ms": 1353,
+        "raw_line": "small seed100 306.91 15/15(100%) 1353ms",
+        "previous_score": 306.91,
+        "delta": 0.0,
+        "trend": "protected"
+      },
+      {
+        "case": "tiny_seed42",
+        "score": 158.65,
+        "assigned": "6/6",
+        "covered": 6,
+        "total": 6,
+        "time_ms": 132,
+        "raw_line": "tiny_seed42 158.65 6/6(100%) 132ms",
+        "previous_score": 158.65,
+        "delta": 0.0,
+        "trend": "protected"
+      }
+    ]
+  },
+  "llm_analysis": null
+}

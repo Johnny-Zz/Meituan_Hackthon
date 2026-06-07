@@ -1,0 +1,44 @@
+--- submission/solver.py@before
++++ submission/solver.py@after
+@@ -3,7 +3,40 @@
+ import time
+ EPS = 1e-09
+ _GROUP_COST_CACHE = {}
+-CONFIG = {'time_budget_ms': 9300.0, 'safety_margin_ms': 450.0, 'auto_strategy_budget_ms': 300.0, 'local_search_budget_ms': 2800.0, 'race_topology_repair_budget_ms': 2600.0, 'normal_preview_backup_cap': 2, 'normal_preview_scan_per_primary': 18, 'normal_topology_top_k': 6, 'normal_topology_generated_limit': 10, 'backup_time_budget_ms': 600.0, 'backup_reallocation_budget_ms': 0.0, 'multi_primary_time_budget_ms': 0.0, 'enable_multi_courier_output': False, 'acceptance_penalty': 100.0, 'max_extra_couriers_per_bundle': 8, 'min_backup_utility': 0.0, 'min_remaining_ms': 45.0, 'max_exact_replace_tasks': 8, 'max_candidates_per_mask': 20, 'special_max_candidates_per_mask': 4, 'special_courier_ratio_threshold': 1.0, 'pair_top_k': 28, 'triple_top_k': 20, 'try_triples': True, 'multi_cost_mode': 'race', 'strategies': [(0.0463, 0.915, 0.0814, 0.0619, 0.052, 0.3189, 0), (0.099, 0.9555, 0.0258, 0.1814, 0.0, 0.0747, 0), (0.051, 1.0402, 0.0407, 0.3392, 0.1406, 0.0082, 1), (0.0696, 0.9884, 0.0974, 0.0911, 0.0737, 0.1305, 0)]}
++# AUTOSOLVER_AGENT_PATCH: last structured CONFIG patch applied by tools/autonomous_patch_agent.py
++# AUTOSOLVER_AGENT_PATCH_REASON: 无 DeepSeek API Key 时，先写入可审查的 patch 元数据，验证自主改写、diff、审查、no-regression 与日志闭环，不改变求解行为。
++CONFIG = {'time_budget_ms': 9300.0,
++ 'safety_margin_ms': 450.0,
++ 'auto_strategy_budget_ms': 300.0,
++ 'local_search_budget_ms': 2800.0,
++ 'race_topology_repair_budget_ms': 2600.0,
++ 'normal_preview_backup_cap': 2,
++ 'normal_preview_scan_per_primary': 18,
++ 'normal_topology_top_k': 6,
++ 'normal_topology_generated_limit': 10,
++ 'backup_time_budget_ms': 600.0,
++ 'backup_reallocation_budget_ms': 0.0,
++ 'multi_primary_time_budget_ms': 0.0,
++ 'enable_multi_courier_output': False,
++ 'acceptance_penalty': 100.0,
++ 'max_extra_couriers_per_bundle': 8,
++ 'min_backup_utility': 0.0,
++ 'min_remaining_ms': 45.0,
++ 'max_exact_replace_tasks': 8,
++ 'max_candidates_per_mask': 20,
++ 'special_max_candidates_per_mask': 4,
++ 'special_courier_ratio_threshold': 1.0,
++ 'pair_top_k': 28,
++ 'triple_top_k': 20,
++ 'try_triples': True,
++ 'multi_cost_mode': 'race',
++ 'strategies': [(0.0463, 0.915, 0.0814, 0.0619, 0.052, 0.3189, 0),
++                (0.099, 0.9555, 0.0258, 0.1814, 0.0, 0.0747, 0),
++                (0.051, 1.0402, 0.0407, 0.3392, 0.1406, 0.0082, 1),
++                (0.0696, 0.9884, 0.0974, 0.0911, 0.0737, 0.1305, 0)],
++ '_agent_patch_round': 3,
++ '_agent_patch_time': '2026-06-06 05:51:44',
++ '_agent_patch_origin': 'local_fallback'}
+ 
+ class Candidate:
+     __slots__ = ('task_str', 'task_ids', 'task_mask', 'courier_id', 'courier_idx', 'courier_bit', 'score', 'willingness', 'task_count', 'score_per_task', 'min_task_degree', 'sum_task_degree', 'courier_degree')

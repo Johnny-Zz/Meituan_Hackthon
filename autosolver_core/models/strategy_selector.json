@@ -1,0 +1,565 @@
+{
+  "scenarios": {
+    "bundle_heavy": {
+      "bundle_heavy_hybrid_teacher_repair": {
+        "avg_reward": -0.7483400000000131,
+        "avg_runtime_ms": 7513.031916666667,
+        "best_reward": 0.0,
+        "success_count": 12,
+        "success_rate": 1.0,
+        "trial_count": 12
+      },
+      "bundle_heavy_teacher_adaptive": {
+        "avg_reward": -3.061117499999966,
+        "avg_runtime_ms": 4288.099,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 1.0,
+        "trial_count": 4
+      },
+      "bundle_heavy_time_limited_teacher": {
+        "avg_reward": -0.9749598333333532,
+        "avg_runtime_ms": 6392.053833333334,
+        "best_reward": 0.0,
+        "success_count": 12,
+        "success_rate": 1.0,
+        "trial_count": 12
+      },
+      "core_default_teacher": {
+        "avg_reward": 145.61551296385542,
+        "avg_runtime_ms": 3991.6989759036146,
+        "best_reward": 547.657201,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "core_default_teacher@9200ms": {
+        "avg_reward": 145.61551296385542,
+        "avg_runtime_ms": 4003.8343975903613,
+        "best_reward": 547.657201,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "core_single_teacher": {
+        "avg_reward": -119.34097902409638,
+        "avg_runtime_ms": 6186.723746987952,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "core_single_teacher@9200ms": {
+        "avg_reward": -0.05353611764705841,
+        "avg_runtime_ms": 7096.9328235294115,
+        "best_reward": 0.0,
+        "success_count": 34,
+        "success_rate": 1.0,
+        "trial_count": 34
+      },
+      "low_willingness_dynamic_incentive": {
+        "avg_reward": -4.89882925000002,
+        "avg_runtime_ms": 2323.91,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 1.0,
+        "trial_count": 4
+      },
+      "low_willingness_dynamic_penalty_adjust": {
+        "avg_reward": -3.7621890000000207,
+        "avg_runtime_ms": 2688.467166666667,
+        "best_reward": 0.0,
+        "success_count": 12,
+        "success_rate": 1.0,
+        "trial_count": 12
+      },
+      "scarce_hybrid_rl_fallback": {
+        "avg_reward": -3.061117499999966,
+        "avg_runtime_ms": 4306.87375,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 1.0,
+        "trial_count": 4
+      },
+      "single_balanced_search": {
+        "avg_reward": -0.5651389705882433,
+        "avg_runtime_ms": 3242.306411764706,
+        "best_reward": 0.0,
+        "success_count": 34,
+        "success_rate": 1.0,
+        "trial_count": 34
+      },
+      "single_balanced_search@2500ms": {
+        "avg_reward": -120.40650398795182,
+        "avg_runtime_ms": 2340.161228915663,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "single_balanced_search@5000ms": {
+        "avg_reward": -119.6467248313253,
+        "avg_runtime_ms": 4172.170831325301,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "single_fast_greedy": {
+        "avg_reward": -122.2258988674699,
+        "avg_runtime_ms": 1319.6781686746988,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "single_ilp_micro": {
+        "avg_reward": -120.91586806024097,
+        "avg_runtime_ms": 2209.078481927711,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "single_scarce_bundle_repair": {
+        "avg_reward": -0.07382038235293716,
+        "avg_runtime_ms": 4328.468000000001,
+        "best_reward": 0.0,
+        "success_count": 34,
+        "success_rate": 1.0,
+        "trial_count": 34
+      },
+      "single_scarce_bundle_repair@5000ms": {
+        "avg_reward": -117.78355875903614,
+        "avg_runtime_ms": 4566.690337349398,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "single_scarce_bundle_repair@7000ms": {
+        "avg_reward": -117.42647708433735,
+        "avg_runtime_ms": 5935.536879518072,
+        "best_reward": 0.0,
+        "success_count": 83,
+        "success_rate": 1.0,
+        "trial_count": 83
+      },
+      "sparse_candidates_adaptive_rl_style": {
+        "avg_reward": 0.5481693333333197,
+        "avg_runtime_ms": 8264.364416666667,
+        "best_reward": 11.377732999999978,
+        "success_count": 12,
+        "success_rate": 1.0,
+        "trial_count": 12
+      },
+      "sparse_candidates_cluster_expand": {
+        "avg_reward": -0.9225045000000023,
+        "avg_runtime_ms": 5961.87325,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 1.0,
+        "trial_count": 4
+      }
+    },
+    "low_willingness": {
+      "bundle_heavy_hybrid_teacher_repair": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 656.0135454545455,
+        "best_reward": 0.0,
+        "success_count": 11,
+        "success_rate": 1.0,
+        "trial_count": 11
+      },
+      "bundle_heavy_teacher_adaptive": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 589.1558,
+        "best_reward": 0.0,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "trial_count": 5
+      },
+      "bundle_heavy_time_limited_teacher": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 651.8836363636364,
+        "best_reward": 0.0,
+        "success_count": 11,
+        "success_rate": 1.0,
+        "trial_count": 11
+      },
+      "core_default_teacher": {
+        "avg_reward": 276.6281640425532,
+        "avg_runtime_ms": 2712.8703191489362,
+        "best_reward": 716.8875049999997,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "core_default_teacher@9200ms": {
+        "avg_reward": 276.6281640425532,
+        "avg_runtime_ms": 2673.5653617021276,
+        "best_reward": 716.8875049999997,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "core_single_teacher": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 500.1692978723404,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "core_single_teacher@9200ms": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 649.6510434782609,
+        "best_reward": 0.0,
+        "success_count": 23,
+        "success_rate": 1.0,
+        "trial_count": 23
+      },
+      "low_willingness_dynamic_incentive": {
+        "avg_reward": -681.627898,
+        "avg_runtime_ms": 69.026,
+        "best_reward": -642.8892210000004,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "trial_count": 5
+      },
+      "low_willingness_dynamic_penalty_adjust": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 661.0922727272728,
+        "best_reward": 0.0,
+        "success_count": 11,
+        "success_rate": 1.0,
+        "trial_count": 11
+      },
+      "scarce_hybrid_rl_fallback": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 601.3671999999999,
+        "best_reward": 0.0,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "trial_count": 5
+      },
+      "single_balanced_search": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 645.2808260869566,
+        "best_reward": 0.0,
+        "success_count": 23,
+        "success_rate": 1.0,
+        "trial_count": 23
+      },
+      "single_balanced_search@2500ms": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 509.4629361702128,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "single_balanced_search@5000ms": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 504.7137021276596,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "single_fast_greedy": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 465.19276595744685,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "single_ilp_micro": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 430.2414893617021,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "single_scarce_bundle_repair": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 645.9078695652173,
+        "best_reward": 0.0,
+        "success_count": 23,
+        "success_rate": 1.0,
+        "trial_count": 23
+      },
+      "single_scarce_bundle_repair@5000ms": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 514.5598723404255,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "single_scarce_bundle_repair@7000ms": {
+        "avg_reward": -306.5598824893617,
+        "avg_runtime_ms": 512.4341063829787,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 1.0,
+        "trial_count": 47
+      },
+      "sparse_candidates_adaptive_rl_style": {
+        "avg_reward": 1.055222909090844,
+        "avg_runtime_ms": 659.1770909090909,
+        "best_reward": 6.8226849999996375,
+        "success_count": 11,
+        "success_rate": 1.0,
+        "trial_count": 11
+      },
+      "sparse_candidates_cluster_expand": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 611.4786,
+        "best_reward": 0.0,
+        "success_count": 5,
+        "success_rate": 1.0,
+        "trial_count": 5
+      }
+    },
+    "scarce_couriers": {
+      "bundle_heavy_hybrid_teacher_repair": {
+        "avg_reward": 0.26351517647058514,
+        "avg_runtime_ms": 3144.034411764706,
+        "best_reward": 4.479757999999947,
+        "success_count": 11,
+        "success_rate": 0.6470588235294118,
+        "trial_count": 17
+      },
+      "bundle_heavy_teacher_adaptive": {
+        "avg_reward": -0.3775361428571549,
+        "avg_runtime_ms": 2604.1277142857143,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 0.5714285714285714,
+        "trial_count": 7
+      },
+      "bundle_heavy_time_limited_teacher": {
+        "avg_reward": 0.26351517647058514,
+        "avg_runtime_ms": 3120.1588235294116,
+        "best_reward": 4.479757999999947,
+        "success_count": 11,
+        "success_rate": 0.6470588235294118,
+        "trial_count": 17
+      },
+      "core_default_teacher": {
+        "avg_reward": -141740.19473032074,
+        "avg_runtime_ms": 3978.08520754717,
+        "best_reward": 385.12096900000006,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "core_default_teacher@9200ms": {
+        "avg_reward": -152178.36454164147,
+        "avg_runtime_ms": 3964.6653018867923,
+        "best_reward": 385.12096900000006,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "core_single_teacher": {
+        "avg_reward": -18.097250207547173,
+        "avg_runtime_ms": 2175.682849056604,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "core_single_teacher@9200ms": {
+        "avg_reward": -4060.03448275862,
+        "avg_runtime_ms": 3007.6589310344825,
+        "best_reward": 0.0,
+        "success_count": 23,
+        "success_rate": 0.7931034482758621,
+        "trial_count": 29
+      },
+      "low_willingness_dynamic_incentive": {
+        "avg_reward": -5.483138428571432,
+        "avg_runtime_ms": 2382.334428571429,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 0.5714285714285714,
+        "trial_count": 7
+      },
+      "low_willingness_dynamic_penalty_adjust": {
+        "avg_reward": -6.527692176470603,
+        "avg_runtime_ms": 2515.3229411764705,
+        "best_reward": 0.0,
+        "success_count": 11,
+        "success_rate": 0.6470588235294118,
+        "trial_count": 17
+      },
+      "scarce_hybrid_rl_fallback": {
+        "avg_reward": -4.094463857142857,
+        "avg_runtime_ms": 3320.169857142857,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 0.5714285714285714,
+        "trial_count": 7
+      },
+      "single_balanced_search": {
+        "avg_reward": 0.0,
+        "avg_runtime_ms": 2894.687896551724,
+        "best_reward": 0.0,
+        "success_count": 23,
+        "success_rate": 0.7931034482758621,
+        "trial_count": 29
+      },
+      "single_balanced_search@2500ms": {
+        "avg_reward": 18849.347862452832,
+        "avg_runtime_ms": 1796.4679245283019,
+        "best_reward": 1000000.0,
+        "success_count": 48,
+        "success_rate": 0.9056603773584906,
+        "trial_count": 53
+      },
+      "single_balanced_search@5000ms": {
+        "avg_reward": -18.097250207547173,
+        "avg_runtime_ms": 2207.967924528302,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "single_fast_greedy": {
+        "avg_reward": -23.206161867924536,
+        "avg_runtime_ms": 1348.9563584905661,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "single_ilp_micro": {
+        "avg_reward": -19.07318771698114,
+        "avg_runtime_ms": 1842.8735849056604,
+        "best_reward": 0.0,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "single_scarce_bundle_repair": {
+        "avg_reward": 0.15447441379310162,
+        "avg_runtime_ms": 3057.3300344827585,
+        "best_reward": 4.479757999999947,
+        "success_count": 23,
+        "success_rate": 0.7931034482758621,
+        "trial_count": 29
+      },
+      "single_scarce_bundle_repair@5000ms": {
+        "avg_reward": -16.068032641509436,
+        "avg_runtime_ms": 2267.609396226415,
+        "best_reward": 4.479757999999947,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "single_scarce_bundle_repair@7000ms": {
+        "avg_reward": -16.068032641509436,
+        "avg_runtime_ms": 2245.4352264150943,
+        "best_reward": 4.479757999999947,
+        "success_count": 47,
+        "success_rate": 0.8867924528301887,
+        "trial_count": 53
+      },
+      "sparse_candidates_adaptive_rl_style": {
+        "avg_reward": 58823.403658176474,
+        "avg_runtime_ms": 3133.897705882353,
+        "best_reward": 1000000.0,
+        "success_count": 12,
+        "success_rate": 0.7058823529411765,
+        "trial_count": 17
+      },
+      "sparse_candidates_cluster_expand": {
+        "avg_reward": -3.3814787142856795,
+        "avg_runtime_ms": 4868.612428571428,
+        "best_reward": 0.0,
+        "success_count": 4,
+        "success_rate": 0.5714285714285714,
+        "trial_count": 7
+      }
+    },
+    "sparse_candidates": {
+      "core_default_teacher": {
+        "avg_reward": 0.08814491724137952,
+        "avg_runtime_ms": 2258.760427586207,
+        "best_reward": 15.236694,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "core_default_teacher@9200ms": {
+        "avg_reward": 0.10508064827586207,
+        "avg_runtime_ms": 2274.933068965517,
+        "best_reward": 15.236694,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "core_single_teacher": {
+        "avg_reward": -117.59443224827585,
+        "avg_runtime_ms": 2654.426062068965,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "single_balanced_search@2500ms": {
+        "avg_reward": -118.38742839999999,
+        "avg_runtime_ms": 1552.540048275862,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "single_balanced_search@5000ms": {
+        "avg_reward": -118.19231757931036,
+        "avg_runtime_ms": 2142.070634482759,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "single_fast_greedy": {
+        "avg_reward": -119.29623411034481,
+        "avg_runtime_ms": 854.8762965517241,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "single_ilp_micro": {
+        "avg_reward": -118.62651091034482,
+        "avg_runtime_ms": 1370.609620689655,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "single_scarce_bundle_repair@5000ms": {
+        "avg_reward": -116.83944378620689,
+        "avg_runtime_ms": 2759.934013793103,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      },
+      "single_scarce_bundle_repair@7000ms": {
+        "avg_reward": -116.90294829655171,
+        "avg_runtime_ms": 3067.415751724138,
+        "best_reward": -12.048885999999996,
+        "success_count": 145,
+        "success_rate": 1.0,
+        "trial_count": 145
+      }
+    }
+  },
+  "type": "contextual_bandit_table"
+}

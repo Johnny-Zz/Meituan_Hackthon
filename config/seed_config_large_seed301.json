@@ -1,0 +1,180 @@
+{
+  "ok": true,
+  "generated_at": "2026-06-07 15:10:53",
+  "base": "cases/large_seed301.txt",
+  "target": "all",
+  "seed": 301,
+  "items": [
+    {
+      "scenario": "high_noise_seed601",
+      "path": "generated_cases/high_noise_seed601/high_noise_seed601.txt",
+      "stats": {
+        "rows": 33780,
+        "tasks": 40,
+        "couriers": 80,
+        "singles": 3200,
+        "bundles": 30580,
+        "score_min": 7.8565,
+        "score_avg": 56.255,
+        "score_max": 100.0,
+        "willingness_avg": 0.2998,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "large_seed301",
+      "path": "generated_cases/large_seed301/large_seed301.txt",
+      "stats": {
+        "rows": 33780,
+        "tasks": 40,
+        "couriers": 80,
+        "singles": 3200,
+        "bundles": 30580,
+        "score_min": 10.002,
+        "score_avg": 56.3942,
+        "score_max": 100.0,
+        "willingness_avg": 0.2997,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "large_seed302",
+      "path": "generated_cases/large_seed302/large_seed302.txt",
+      "stats": {
+        "rows": 33780,
+        "tasks": 40,
+        "couriers": 80,
+        "singles": 3200,
+        "bundles": 30580,
+        "score_min": 9.9471,
+        "score_avg": 56.5804,
+        "score_max": 100.0,
+        "willingness_avg": 0.2999,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "low_willingness_seed501",
+      "path": "generated_cases/low_willingness_seed501/low_willingness_seed501.txt",
+      "stats": {
+        "rows": 33780,
+        "tasks": 40,
+        "couriers": 80,
+        "singles": 3200,
+        "bundles": 30580,
+        "score_min": 9.8585,
+        "score_avg": 56.383,
+        "score_max": 100.0,
+        "willingness_avg": 0.1267,
+        "willingness_min": 0.01,
+        "willingness_max": 0.18
+      }
+    },
+    {
+      "scenario": "medium_seed201",
+      "path": "generated_cases/medium_seed201/medium_seed201.txt",
+      "stats": {
+        "rows": 14609,
+        "tasks": 30,
+        "couriers": 60,
+        "singles": 1800,
+        "bundles": 12809,
+        "score_min": 9.8564,
+        "score_avg": 55.8207,
+        "score_max": 100.0,
+        "willingness_avg": 0.3079,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "medium_seed202",
+      "path": "generated_cases/medium_seed202/medium_seed202.txt",
+      "stats": {
+        "rows": 14606,
+        "tasks": 30,
+        "couriers": 60,
+        "singles": 1800,
+        "bundles": 12806,
+        "score_min": 9.6745,
+        "score_avg": 55.498,
+        "score_max": 100.0,
+        "willingness_avg": 0.3117,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "medium_seed203",
+      "path": "generated_cases/medium_seed203/medium_seed203.txt",
+      "stats": {
+        "rows": 14615,
+        "tasks": 30,
+        "couriers": 60,
+        "singles": 1800,
+        "bundles": 12815,
+        "score_min": 9.9158,
+        "score_avg": 56.3445,
+        "score_max": 100.0,
+        "willingness_avg": 0.2837,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "scarce_couriers_seed401",
+      "path": "generated_cases/scarce_couriers_seed401/scarce_couriers_seed401.txt",
+      "stats": {
+        "rows": 17280,
+        "tasks": 40,
+        "couriers": 41,
+        "singles": 1640,
+        "bundles": 15640,
+        "score_min": 9.7582,
+        "score_avg": 56.9544,
+        "score_max": 100.0,
+        "willingness_avg": 0.3037,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "small_seed100",
+      "path": "generated_cases/small_seed100/small_seed100.txt",
+      "stats": {
+        "rows": 2095,
+        "tasks": 15,
+        "couriers": 32,
+        "singles": 480,
+        "bundles": 1615,
+        "score_min": 10.0211,
+        "score_avg": 52.8358,
+        "score_max": 100.0,
+        "willingness_avg": 0.3185,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    },
+    {
+      "scenario": "tiny_seed42",
+      "path": "generated_cases/tiny_seed42/tiny_seed42.txt",
+      "stats": {
+        "rows": 186,
+        "tasks": 6,
+        "couriers": 14,
+        "singles": 84,
+        "bundles": 102,
+        "score_min": 10.0763,
+        "score_avg": 43.8991,
+        "score_max": 94.2854,
+        "willingness_avg": 0.3962,
+        "willingness_min": 0.01,
+        "willingness_max": 0.9499
+      }
+    }
+  ],
+  "agent_training_hint": "These generated TSV cases are synthetic scenario variants for local mid-training and no-regression exploration only; official online scores remain source of truth."
+}

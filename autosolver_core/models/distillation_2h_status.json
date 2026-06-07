@@ -1,0 +1,28 @@
+{
+  "elapsed_seconds": 6364.082,
+  "remaining_seconds": 835.918,
+  "processed_cases": 242,
+  "logged_trials": 2178,
+  "best_case": "agent\\meituan_1500_training_samples_by_scene\\case_bank\\train\\tiny_seed42\\tiny_seed42_aug116.txt",
+  "best_seen": {
+    "valid": true,
+    "covered_tasks": 6,
+    "total_tasks": 6,
+    "missing_tasks": 0,
+    "missing_task_ids": [],
+    "total_score": 116.135,
+    "penalty_score": 90.250345,
+    "parallel_penalty_score": 120.02579,
+    "expected_accepted_tasks": 5.808485,
+    "solution_items": 5,
+    "duplicate_tasks": [],
+    "duplicate_couriers": [],
+    "unknown_tasks": [],
+    "invalid_candidate_count": 0,
+    "malformed_item_count": 0,
+    "runtime_ms": 10.248,
+    "strategy_name": "core_default_teacher",
+    "budget_ms": 8500.0
+  },
+  "model_out": "models\\strategy_selector.json"
+}

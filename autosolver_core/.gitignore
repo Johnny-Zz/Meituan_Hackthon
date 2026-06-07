@@ -1,0 +1,29 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Agent runtime artifacts
+memory/*.sqlite
+models/*_rf.joblib
+*_stdout.log
+*_stderr.log
+*.pid
+
+# Self-evolution artifacts
+self_evolution_checkpoint.json
+self_evolution_log.jsonl
+self_evolution_summary.json
+training_cases_auto/
+training_cases_evolution/
+solver_best_evolved.py
+solver_best_long.py
+long_training_log.jsonl
+*.py.bak
